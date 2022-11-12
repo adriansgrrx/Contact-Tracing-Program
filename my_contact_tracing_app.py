@@ -18,51 +18,62 @@
 import datetime
 time_today = datetime.datetime.now()
 
-print("Menu")
-print("1 -> Add an item")
-print("2 -> Search")
-print("3 -> Exit [y/n]")
+print("\nMenu")
+print(" 1 -> Add an item")
+print(" 2 -> Search")
+print(" 3 -> Exit [y/n]")
 
+def get_info():
+    # first info
+    database["Name"]["Fullname"] = str(input("Fullname: ")).title()
+    # second info
+    database["Name"]["Fullname"] = str(input("Sex: ")).title()
+    # third info
+    database["Name"]["Fullname"] = int(input("Age: "))
+    # forth info
+    database["Name"]["Fullname"] = input("Address: ").title()
+    # fifth info
+    database["Name"]["Fullname"] = input("Phone Number: ")
+    # sixth info
+    user_temp = float(input("Temperature: "))
+    # seventh info
+    database["Name"]["Fullname"] = float(input("Temperature: "))
+    # eighth info
+    database["Name"]["Fullname"] = str(input("Any Comorbidities: ")).title()
 
+def do_search():
+    for data in database["Name"].items():   
+        print(data)
 
-database = {
-    "Fullname": "Adrian R. Esguerra",
-    "Sex": "Male",
-    "Age": 19,
-    "Address": "Taltal, Masinloc, Zambales",
-    "Phone Number": "0912 345 6789",
-    "Temperature": 36.2,
-    "Comorbidities": "None",
-    "Time": time_today
-}
-
-# For option 1
-# Ask personal data for contact tracing
-
-user_data = {
-    "Fullname": str(input("Fullname: ")).title(),
-    "Sex": str(input("Sex: ")).title(),
-    "Age": int(input("Age: ")),
-    "Address": input("Address: ").title(),
-    "Phone Number": input("Phone Number: "),
-    "Temperature": float(input("Temperature: ")),
-    "Comorbidities": str(input("Any Comorbidities: ")).title(),
-    "Time": time_today
-}
-
-#   Allow user to select item in the menu (check if valid)
+# Allow user to select item in the menu (check if valid)
 user_req = int(input("\nWhat do you want to do? "))
 if user_req > 3 or user_req < 1:
     print("\nYour input is OUT OF RANGE.\nThe program only has options of 1, 2 and 3.")
+elif user_req == 1:
+    get_info()
+elif user_req == 2:
+    do_search()
 
-
-
-
-
-
-
-database.update(user_data)
-for form, answer in database.items():
-    print(f"{form}: {answer}")
-
-
+user_name = ""
+database = {
+    "Adrian R. Esguerra": {
+        "Fullname": "Adrian R. Esguerra",
+        "Sex": "Male",
+        "Age": 19,
+        "Address": "Taltal, Masinloc, Zambales",
+        "Phone Number": "0912 345 6789",
+        "Temperature": 36.2,
+        "Comorbidities": "None",
+        "Time": time_today
+    },
+    "Name": {
+        "Fullname": "",
+        "Sex": "", 
+        "Age": 0,
+        "Address": "", 
+        "Phone Number": 0, 
+        "Temperature": 0.0,
+        "Comorbidities": "",
+        "Time": time_today
+    }
+} 
