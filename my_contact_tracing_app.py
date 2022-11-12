@@ -23,38 +23,6 @@ print(" 1 -> Add an item")
 print(" 2 -> Search")
 print(" 3 -> Exit [y/n]")
 
-def get_info():
-    # first info
-    database["Name"]["Fullname"] = str(input("Fullname: ")).title()
-    # second info
-    database["Name"]["Fullname"] = str(input("Sex: ")).title()
-    # third info
-    database["Name"]["Fullname"] = int(input("Age: "))
-    # forth info
-    database["Name"]["Fullname"] = input("Address: ").title()
-    # fifth info
-    database["Name"]["Fullname"] = input("Phone Number: ")
-    # sixth info
-    user_temp = float(input("Temperature: "))
-    # seventh info
-    database["Name"]["Fullname"] = float(input("Temperature: "))
-    # eighth info
-    database["Name"]["Fullname"] = str(input("Any Comorbidities: ")).title()
-
-def do_search():
-    for data in database["Name"].items():   
-        print(data)
-
-# Allow user to select item in the menu (check if valid)
-user_req = int(input("\nWhat do you want to do? "))
-if user_req > 3 or user_req < 1:
-    print("\nYour input is OUT OF RANGE.\nThe program only has options of 1, 2 and 3.")
-elif user_req == 1:
-    get_info()
-elif user_req == 2:
-    do_search()
-
-user_name = ""
 database = {
     "Adrian R. Esguerra": {
         "Fullname": "Adrian R. Esguerra",
@@ -66,7 +34,7 @@ database = {
         "Comorbidities": "None",
         "Time": time_today
     },
-    "Name": {
+    "Fullname": {
         "Fullname": "",
         "Sex": "", 
         "Age": 0,
@@ -77,3 +45,40 @@ database = {
         "Time": time_today
     }
 } 
+
+def get_info():
+    data_name = input
+    # first info
+    database["Name"]["Fullname"] = str(input("Fullname: ")).title()
+    # second info
+    database["Name"]["Fullname"] = str(input("Sex: ")).title()
+    # third info
+    database["Name"]["Fullname"] = int(input("Age: "))
+    # forth info
+    database["Name"]["Fullname"] = input("Address: ").title()
+    # fifth info
+    database["Name"]["Fullname"] = input("Phone Number: ")
+    # sixth info
+    database["Name"]["Fullname"] = float(input("Temperature: "))
+    # seventh info
+    database["Name"]["Fullname"] = str(input("Any Comorbidities: ")).title()
+
+def do_search():
+    user_name = str(input("Enter the user name: "))
+    for key, value in database[user_name].items():   
+        print(f"{key}: {value}")
+        print()
+
+# Allow user to select item in the menu (check if valid)
+user_req = int(input("\nWhat do you want to do? "))
+if user_req > 3 or user_req < 1:
+    print("\nYour input is OUT OF RANGE.\nThe program only has options of 1, 2 and 3.")
+elif user_req == 1:
+    get_info()
+    print("\nYour information was saved!")
+    for data in database["Name"].items():
+        print(data)
+elif user_req == 2:
+    do_search()
+elif user_req == 3:
+    breakpoint()
