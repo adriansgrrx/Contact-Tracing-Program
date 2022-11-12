@@ -18,7 +18,7 @@
 import datetime
 time_today = datetime.datetime.now()
 
-user_name = str(input("Register your fullname first: "))
+
 
 print("\nMenu")
 print(" 1 -> Add an item")
@@ -49,7 +49,6 @@ database = {
 } 
 
 def get_info():
-    print("your entered user name ", user_name)
     # first info
     database[user_name]["Fullname"] = str(input("Fullname: ")).title()
     # second info
