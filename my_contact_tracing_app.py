@@ -32,6 +32,7 @@ database = {
     "User": {}
 } 
 def get_info():
+    print("\nPlease fill-out the form and provide appropriate information")
     # first info
     database["User"]["Fullname"] = str(input("Fullname: ")).title()
     # second info
@@ -66,7 +67,6 @@ while True:
     print(" 2 -> Search")
     print(" 3 -> Exit [y/n]")
     user_req = int(input("\nWhat do you want to do? "))
-    print("\nPlease fill-out the form and provide appropriate information")
     if user_req > 3 or user_req < 1:
         print("\nYour input is OUT OF RANGE.\nThe program only has options of 1, 2 and 3.")
     elif user_req == 1:
