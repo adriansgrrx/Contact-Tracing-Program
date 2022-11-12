@@ -23,3 +23,15 @@ if user_req > 3 or user_req < 1:
 # 				   The value is another dictionary of personal information
 # 		- Option 2: Search, ask full name then display the record
 # 		- Option 3: Ask the user if want to exit or retry.
+
+# For option 1
+# Ask personal data for contact tracing
+# first info
+user_name = input("Fullname: ").title()
+
+user_database = {
+    "Fullname": user_name 
+}
+
+for form, answer in user_database.items():
+    print(form + ": " + answer)
