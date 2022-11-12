@@ -27,11 +27,32 @@ if user_req > 3 or user_req < 1:
 # For option 1
 # Ask personal data for contact tracing
 # first info
-user_name = input("Fullname: ").title()
+user_name = str(input("Fullname: ")).title()
+# second info
+user_sex = str(input("Sex: ")).title()
+# third info
+user_age = int(input("Age: "))
+# forth info
+user_address = input("Address: ")
+# fifth info
+user_contact = int(input("Phone Number: "))
+# sixth info
+user_temp = float(input("Temperature: "))
+# seventh info
+user_comorb = input("Any Comorbidities: ")
+# eighth info
+user_temp = input("Ever been diagnosed positive for COVID-19? [Yes/No]: ")
 
 user_database = {
-    "Fullname": user_name 
+    "Fullname": user_name,
+    "Sex": user_sex,
+    "Age": user_age,
+    "Address": user_address,
+    "Phone Number": user_contact,
+    "Temperature": user_temp,
+    "Any Comorbidities": user_temp,
+    "Ever been diagnosed positive for COVID-19? [Yes/No]": user_temp
 }
 
 for form, answer in user_database.items():
-    print(form + ": " + answer)
+    print(f"{form}: {answer}")
