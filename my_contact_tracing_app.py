@@ -54,6 +54,8 @@ def do_search():
     print()
     for key, value in database["User"].items():   
         print(f"{key}: {value}")
+    if user_name != "":
+        print("            User NOT FOUND.")
     print()
 
 # Allow user to select item in the menu (check if valid)
