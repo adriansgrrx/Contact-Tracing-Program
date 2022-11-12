@@ -18,13 +18,6 @@
 import datetime
 time_today = datetime.datetime.now()
 
-
-
-print("\nMenu")
-print(" 1 -> Add an item")
-print(" 2 -> Search")
-print(" 3 -> Exit [y/n]")
-
 database = {
     "Adrian R. Esguerra": {
         "Fullname": "Adrian R. Esguerra",
@@ -36,58 +29,61 @@ database = {
         "Comorbidities": "None",
         "Time": time_today
     },
-    user_name: {
-        "Fullname": "",
-        "Sex": "", 
-        "Age": 0,
-        "Address": "", 
-        "Phone Number": 0, 
-        "Temperature": 0.0,
-        "Comorbidities": "",
-        "Time": time_today
-    }
+    "User": {}
 } 
-
 def get_info():
     # first info
-    database[user_name]["Fullname"] = str(input("Fullname: ")).title()
+    database["User"]["Fullname"] = str(input("Fullname: ")).title()
     # second info
-    database[user_name]["Sex"] = str(input("Sex: ")).title()
+    database["User"]["Sex"] = str(input("Sex: ")).title()
     # third info
-    database[user_name]["Age"] = int(input("Age: "))
+    database["User"]["Age"] = int(input("Age: "))
     # forth info
-    database[user_name]["Address"] = input("Address: ").title()
+    database["User"]["Address"] = input("Address: ").title()
     # fifth info
-    database[user_name]["Phone Number"] = input("Phone Number: ")
+    database["User"]["Phone Number"] = input("Phone Number: ")
     # sixth info
-    database[user_name]["Temperature"] = float(input("Temperature: "))
+    database["User"]["Temperature"] = float(input("Temperature: "))
     # seventh info
-    database[user_name]["Comorbidities"] = str(input("Any Comorbidities: ")).title()
+    database["User"]["Comorbidities"] = str(input("Any Comorbidities: ")).title()
+    # fifth info
+    database["User"]["Time"] = time_today
 
 def do_search():
     user_name = str(input("Enter the user name: "))
     print()
-    for key, value in database[user_name].items():   
+    for key, value in database["User"].items():   
         print(f"{key}: {value}")
     print()
 
 # Allow user to select item in the menu (check if valid)
 while True:
+    print("***************************************")
+    print("\nMenu")
+    print(" 1 -> Add an item")
+    print(" 2 -> Search")
+    print(" 3 -> Exit [y/n]")
     user_req = int(input("\nWhat do you want to do? "))
     if user_req > 3 or user_req < 1:
         print("\nYour input is OUT OF RANGE.\nThe program only has options of 1, 2 and 3.")
     elif user_req == 1:
         get_info()
-        for key, value in database[user_name].items():   
+        print("***************************************")
+        print("                Saved. ")
+        print("             --Receipt-- ")
+        for key, value in database["User"].items():   
             print(f"{key}: {value}")
         print()
     elif user_req == 2:
+        print("***************************************")
         do_search()
+        print("***************************************")
+
     elif user_req == 3:
         q = str(input("Do you want tto exit? [y/n]>>> ")).lower()
         if q == "y":
             break
-        if q == "n":
+        elif q == "n":
             continue
-        
-
+        else:
+            print("Invalid Input")
